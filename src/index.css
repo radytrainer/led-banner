@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Geist:wght@400;500;600&family=Battambang:wght@400;700&family=Moul&family=Kantumruy+Pro:wght@400;700&family=Nokora:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-display: "Sora", sans-serif;
+  
+  --color-primary-container: #00f3ff;
+  --color-secondary-custom: #fface8;
+  --color-surface-custom: #131313;
+  --color-surface-container-custom: #201f1f;
+}
+
+/* Base definitions */
+body {
+  background-color: #000000;
+  color: #e5e2e1;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Simulated physical LED dot matrix overlay */
+.led-dot-matrix {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 6px 6px;
+}
+
+/* Fullscreen immersive dot matrix pattern */
+.led-canvas-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.7) 1.5px, transparent 0);
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Realistic LED cutout masking for glowing texts */
+.led-mask {
+  -webkit-mask-image: radial-gradient(circle, #000 1.2px, transparent 1.2px);
+  -webkit-mask-size: 4px 4px;
+  mask-image: radial-gradient(circle, #000 1.2px, transparent 1.2px);
+  mask-size: 4px 4px;
+}
+
+/* Neon Glow Preset Utilities */
+.neon-glow {
+  text-shadow: 
+    0 0 10px var(--glow-color, rgba(0, 243, 255, 0.8)),
+    0 0 20px var(--glow-color, rgba(0, 243, 255, 0.6)),
+    0 0 40px var(--glow-color, rgba(0, 243, 255, 0.4)),
+    0 0 70px var(--glow-color, rgba(0, 243, 255, 0.2));
+}
+
+/* Horizontal scrolling keyframes */
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scrollText var(--marquee-duration, 5s) linear infinite;
+  padding-left: 100%;
+}
+
+/* Digital cabinet scanlines animation and atmospheric look */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.5) 50%
+  ), 
+  linear-gradient(
+    90deg, 
+    rgba(255, 0, 0, 0.08), 
+    rgba(0, 255, 0, 0.04), 
+    rgba(0, 0, 255, 0.08)
+  );
+  z-index: 40;
+  background-size: 100% 4px, 3px 100%;
+}
+
+/* Glassmorphic control cards */
+.glass-card {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-pill {
+  background: rgba(18, 18, 18, 0.60);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Custom styles for input ranges */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #00f3ff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00f3ff;
+}
+
+/* Hide cursor when inactive */
+.cursor-none-active {
+  cursor: none !important;
+}
+
+/* Hide scrollbar for overflow areas that should appear seamless */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
