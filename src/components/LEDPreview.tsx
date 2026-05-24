@@ -66,7 +66,7 @@ export const LEDPreview: React.FC<LEDPreviewProps> = ({ config, className = '', 
 
   return (
     <div 
-      className={`relative w-full overflow-x-hidden no-scrollbar flex items-center min-h-[140px] ${className}`}
+      className={`relative w-full overflow-x-hidden no-scrollbar flex items-center ${isFullScreen ? 'h-full' : 'min-h-[140px]'} ${className}`}
       style={containerStyle}
     >
       {/* Mesh dot pattern simulate real LEDs */}

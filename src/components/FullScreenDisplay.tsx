@@ -149,10 +149,10 @@ export const FullScreenDisplay: React.FC<FullScreenDisplayProps> = ({ config, on
       onTouchEnd={showControlsAndScheduleHide}
     >
       {/* Immersive display layout with custom height and grid overrides */}
-      <div className="absolute inset-0 flex items-center justify-center bg-black min-h-screen">
+      <div className="absolute inset-0 flex items-center justify-center bg-black">
         <LEDPreview 
           config={displayConfig} 
-          className="h-full min-h-screen py-10" 
+          className="h-full w-full" 
           isFullScreen={true}
         />
       </div>
